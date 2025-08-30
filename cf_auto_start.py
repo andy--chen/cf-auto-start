@@ -190,15 +190,15 @@ async def send_telegram_message(message):
         try:
             bot = Bot(token=TELEGRAM_BOT_TOKEN)
             # 发送测试消息（使用await调用异步方法）
-            response = await bot.send_message(
-                chat_id=int(TELEGRAM_CHAT_ID),  # 强制转为整数
-                text=test_content,
-                disable_web_page_preview=True
-            )
-            print(f"✅ 第{attempt+1}次发送成功，消息ID: {response.message_id}")
+            # response = await bot.send_message(
+            #     chat_id=int(TELEGRAM_CHAT_ID),  # 强制转为整数
+            #     text=test_content,
+            #     disable_web_page_preview=True
+            # )
+            # print(f"✅ 第{attempt+1}次发送成功，消息ID: {response.message_id}")
             
             # 测试成功后，再发送实际消息
-            if message and message != test_content:
+            if message:
                 response = await bot.send_message(
                     chat_id=int(TELEGRAM_CHAT_ID),
                     text=message,
